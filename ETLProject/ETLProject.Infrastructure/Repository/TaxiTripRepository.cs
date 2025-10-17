@@ -70,6 +70,7 @@ public class TaxiTripRepository : ITaxiTripRepository
         }
     }
 
+    //Before running the app, make sure folder from {filePath} is exist to avoid an error.
     public async Task WriteDuplicatesAsync(IEnumerable<TaxiTrip> duplicates, string filePath)
     {
         var duplicatesList = duplicates.ToList();

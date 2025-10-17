@@ -9,6 +9,7 @@ using ETLProject.Processor;
 using ETLProject.Core.Repositories;
 using ETLProject.Infrastructure.Repository;
 
+//Code here I registered all dependencies in DI container and run the app
 public class Program
 {
     public static async Task Main(string[] args)

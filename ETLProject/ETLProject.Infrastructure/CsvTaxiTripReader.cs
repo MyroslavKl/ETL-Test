@@ -10,6 +10,7 @@ public class CsvTaxiTripReader
 {
     private readonly HttpClient _httpClient;
 
+    //Decided to use HttpClient to read directly from google drive
     public CsvTaxiTripReader()
     {
         _httpClient = new HttpClient();
