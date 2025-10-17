@@ -2,6 +2,7 @@
 
 namespace ETLProject.Processor;
 
+//Here I have code of transforming our records.
 public class TaxiTripProcessor
 {
     private readonly TimeZoneInfo _timeZone;
