@@ -16,7 +16,7 @@ public class CsvTaxiTripReader
         _httpClient = new HttpClient();
     }
 
-    public async IAsyncEnumerable<TaxiTrip> ReadTripsFromUrlAsync(string url)
+    public virtual async IAsyncEnumerable<TaxiTrip> ReadTripsFromUrlAsync(string url)
     {
         var responseStream = await _httpClient.GetStreamAsync(url);
 
