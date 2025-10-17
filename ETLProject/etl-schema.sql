@@ -7,7 +7,7 @@ CREATE TABLE TaxiTripData(
   passenger_count SMALLINT,
   trip_distance DECIMAL(6,3),
   store_and_fwd_flag VARCHAR(3),
-  PULocationID SMALLINT
+  PULocationID SMALLINT,
   DOLocationID SMALLINT,
   fare_amount DECIMAL(5,2),
   tip_amount DECIMAL(5,2)
