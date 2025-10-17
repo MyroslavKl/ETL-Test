@@ -4,7 +4,7 @@ public class TaxiTrip
 {
     public DateTime TpepPickupDatetime { get; set; }
     public DateTime TpepDropoffDatetime { get; set; }
-    public int PassengerCount { get; set; }
+    public int? PassengerCount { get; set; }
     public decimal TripDistance { get; set; }
     public string StoreAndFwdFlag { get; set; } = string.Empty;
     public int PULocationID { get; set; }
