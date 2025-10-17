@@ -16,3 +16,5 @@ Also adding here the logs:
 [18:09:11 INF] Writing 111 duplicates to file: C:\taxitripdata\duplicates.csv
 [18:09:11 INF] Successfully wrote duplicates to file.
 [18:09:11 INF] ETL process finished successfully. Final row count in table: 29889
+
+Also, in sql-queries.sql, I added queries from the task.
