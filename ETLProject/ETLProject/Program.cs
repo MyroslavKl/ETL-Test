@@ -8,6 +8,7 @@ using Serilog;
 using ETLProject.Processor;
 using ETLProject.Core.Repositories;
 using ETLProject.Infrastructure.Repository;
+using ETLProject.Core.Contracts;
 
 //Code here I registered all dependencies in DI container and run the app
 public class Program
@@ -23,7 +24,7 @@ public class Program
         builder.Logging.AddSerilog(logger);
 
         builder.Services.AddSingleton<CsvTaxiTripReader>();
-        builder.Services.AddSingleton<TaxiTripProcessor>();
+        builder.Services.AddSingleton<ITaxiTripProcessor, TaxiTripProcessor>();
         builder.Services.AddScoped<ITaxiTripRepository, TaxiTripRepository>();
 
         builder.Services.AddSingleton<EtlOrchestrator>();

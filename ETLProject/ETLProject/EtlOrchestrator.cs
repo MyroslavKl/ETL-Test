@@ -1,4 +1,4 @@
-﻿
+﻿using ETLProject.Core.Contracts;
 using ETLProject.Core.Repositories;
 using ETLProject.Infrastructure;
 using ETLProject.Processor;
@@ -13,12 +13,12 @@ public class EtlOrchestrator : IHostedService
 {
     private readonly ILogger<EtlOrchestrator> _logger;
     private readonly CsvTaxiTripReader _reader;
-    private readonly TaxiTripProcessor _processor;
+    private readonly ITaxiTripProcessor _processor;
     private readonly ITaxiTripRepository _repository;
     private readonly IConfiguration _config;
 
     public EtlOrchestrator(ILogger<EtlOrchestrator> logger, CsvTaxiTripReader reader,
-        TaxiTripProcessor processor, ITaxiTripRepository repository,IConfiguration config)
+        ITaxiTripProcessor processor, ITaxiTripRepository repository,IConfiguration config)
     {
         _logger = logger;
         _reader = reader;

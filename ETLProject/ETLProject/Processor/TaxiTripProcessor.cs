@@ -3,7 +3,7 @@
 namespace ETLProject.Processor;
 
 //Here I have code of transforming our records.
-public class TaxiTripProcessor
+public class TaxiTripProcessor:Core.Contracts.ITaxiTripProcessor
 {
     private readonly TimeZoneInfo _timeZone;
 
