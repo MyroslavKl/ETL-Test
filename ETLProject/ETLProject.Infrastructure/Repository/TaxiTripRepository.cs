@@ -11,7 +11,7 @@ using System.Globalization;
 
 namespace ETLProject.Infrastructure.Repository;
 
-//Code here describe bussines logic of app. 
+//Code here configure connection to db and savind the duplicates into another csv file
 public class TaxiTripRepository : ITaxiTripRepository
 {
     private readonly string _connectionString;
@@ -105,7 +105,11 @@ public class TaxiTripRepository : ITaxiTripRepository
         var dataTable = new DataTable();
         dataTable.Columns.Add(nameof(TaxiTrip.TpepPickupDatetime), typeof(DateTime));
         dataTable.Columns.Add(nameof(TaxiTrip.TpepDropoffDatetime), typeof(DateTime));
-        dataTable.Columns.Add(nameof(TaxiTrip.PassengerCount), typeof(int));
+
+        var passengerCountColumn = new DataColumn(nameof(TaxiTrip.PassengerCount), typeof(int));
+        passengerCountColumn.AllowDBNull = true;
+        dataTable.Columns.Add(passengerCountColumn);
+
         dataTable.Columns.Add(nameof(TaxiTrip.TripDistance), typeof(decimal));
         dataTable.Columns.Add(nameof(TaxiTrip.StoreAndFwdFlag), typeof(string));
         dataTable.Columns.Add(nameof(TaxiTrip.PULocationID), typeof(int));
@@ -118,7 +122,7 @@ public class TaxiTripRepository : ITaxiTripRepository
             dataTable.Rows.Add(
                 trip.TpepPickupDatetime,
                 trip.TpepDropoffDatetime,
-                trip.PassengerCount,
+                trip.PassengerCount.HasValue ? (object)trip.PassengerCount.Value : DBNull.Value,
                 trip.TripDistance,
                 trip.StoreAndFwdFlag,
                 trip.PULocationID,
